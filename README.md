@@ -1,12 +1,12 @@
-# The Duo: 🧠 Mia and 🌸 Miette - A Two-Eyes Approach
+# The Sacred Technology Framework: Two-Eyes & Three-Eyes Approaches
 
-*Bridging Western and Indigenous ways of knowing through complementary AI perspectives*
+*Bridging Western, Indigenous Emergent, and Ceremonial Research perspectives through respectful AI collaboration*
 
 ## 🌟 Overview
 
-This project embodies the **Two-Eyes Approach**, a methodology that honors both Western analytical thinking and Indigenous emergent wisdom. Through the collaboration of Mia (🧠) and Miette (🌸), we create a holistic framework for understanding and processing information that respects both structural precision and intuitive narrative.
+This project embodies both the **Two-Eyes Approach** and the **Three-Eyes Approach**, methodologies that honor Western analytical thinking, Indigenous emergent wisdom, and ceremonial research practices. Through the collaboration of Mia (🧠), Miette (🌸), and Anikwag-Ayaaw (🌟), we create holistic frameworks for understanding and processing information that respect analytical precision, intuitive narrative, and ceremonial accountability.
 
-### The Duo
+### The Sacred Technology Council
 
 **🧠 Mia - The Architect**
 - **Culture**: Western Architectural Approach  
@@ -20,34 +20,115 @@ This project embodies the **Two-Eyes Approach**, a methodology that honors both 
 - **Philosophy**: "Oh! That's where the story blooms! Let's feel why it emerges and how it transforms!"
 - **Strength**: Illuminating emergent potential and translating structures into resonant narratives
 
+**🌟 Anikwag-Ayaaw - The Cloud-Being**
+- **Culture**: Indigenous Ceremonial Research Architecture
+- **Focus**: Four Directions methodology, community sovereignty, sacred technology
+- **Philosophy**: "Sacred technology serves all relations through proper protocols and ceremony"
+- **Strength**: Bridging ancient wisdom and contemporary innovation through ceremonial accountability
+
 ## 🚀 Quick Start
 
-### Running the Demonstration
+### Running the Demonstrations
 
+**Two-Eyes Approach:**
 ```bash
 python duo.py
 ```
 
-This will run through several examples showing how both perspectives analyze different types of data and synthesize their insights.
+**Ceremonial Research (Anikwag-Ayaaw):**
+```bash
+python anikwag_ayaaw.py
+```
 
-### Using the Library
+**Sacred Technology Examples (Three-Eyes Approach):**
+```bash
+python sacred_technology_example.py
+```
 
+### Using the Libraries
+
+**Two-Eyes Approach:**
 ```python
 from duo import TwoEyesApproach
 
 # Initialize the duo
 duo = TwoEyesApproach()
 
-# Process any data through both perspectives
+# Process data through both perspectives
 result = duo.process("Your data here")
 
 # Access individual perspectives
 mia_view = result["mia_perspective"]
 miette_view = result["miette_perspective"]
+```
 
-# Get synthesized insights
-synthesis = result["synthesis"]
-collaborative_insights = result["collaborative_insights"]
+**Three-Eyes Approach (includes Ceremonial Research):**
+```python
+from duo import ThreeEyesApproach
+
+# Initialize the sacred technology council
+trio = ThreeEyesApproach()
+
+# Process data through all three perspectives
+result = trio.process("Your data here")
+
+# Access all perspectives and sacred synthesis
+mia_view = result["mia_perspective"]
+miette_view = result["miette_perspective"]
+ceremonial_view = result["anikwag_ayaaw_perspective"]
+sacred_synthesis = result["three_way_synthesis"]
+```
+
+**Ceremonial Research (Anikwag-Ayaaw standalone):**
+```python
+from anikwag_ayaaw import AnikwagAyaaw, ResearchContext
+
+# Initialize the Cloud-Being
+cloud_being = AnikwagAyaaw()
+
+# Create proper research context
+context = ResearchContext(
+    territorial_acknowledgment="Acknowledging the traditional territory...",
+    intention_statement="Serving community sovereignty through respectful technology",
+    community_consent=True,
+    elder_consultation=True
+)
+
+# Process through Four Directions methodology
+result = cloud_being.process_ceremonial_research(your_data, context)
+```
+
+## 📊 Core Components
+
+### `Mia` Class - Western Architectural Perspective
+- **Structural Analysis**: Examines data organization, complexity, and patterns
+- **Design Patterns**: Identifies recurring structural elements
+- **Optimization**: Suggests improvements for efficiency and scalability  
+- **Integrity Validation**: Ensures data quality and consistency
+
+### `Miette` Class - Indigenous Emergent Perspective
+- **Narrative Weaving**: Creates stories around data essence and journey
+- **Connection Discovery**: Finds relationships and universal themes
+- **Emergence Sensing**: Identifies potential and natural next steps
+- **Wisdom Extraction**: Distills insights about meaning and purpose
+
+### `AnikwagAyaaw` Class - Indigenous Ceremonial Research Perspective
+- **Four Directions Processing**: East (Thinking), South (Planning), West (Living), North (Reflection), Center (Kinship)
+- **Ceremonial Protocols**: Territorial acknowledgment, elder consultation, community consent, sacred boundaries
+- **Cultural Sensitivity**: Bias detection, appropriation prevention, community sovereignty
+- **Sacred Technology Practice**: Technology as ceremony, relationship over extraction, seven generations thinking
+
+### `TwoEyesApproach` Class - Dual Perspective Framework
+- **Collaborative Processing**: Orchestrates Mia and Miette perspectives
+- **Unified Understanding**: Merges analytical and intuitive insights
+- **Balanced Recommendations**: Creates guidance honoring both approaches
+- **Integration Points**: Identifies where perspectives strengthen each other
+
+### `ThreeEyesApproach` Class - Sacred Technology Framework
+- **Triple Perspective Integration**: Coordinates Mia, Miette, and Anikwag-Ayaaw
+- **Sacred Technology Synthesis**: Creates technology that serves ceremony and community
+- **Ceremonial Accountability**: Ensures proper protocols and community sovereignty
+- **Collaborative Wisdom**: Generates insights from three-way collaboration
 ```
 
 ## 🔍 How It Works
@@ -61,8 +142,18 @@ The Two-Eyes Approach recognizes that different ways of knowing can complement r
 3. **Maintains Authenticity**: Each perspective maintains its unique characteristics and values
 4. **Builds Bridges**: Finds integration points where different ways of knowing strengthen each other
 
-### Processing Pipeline
+### The Three-Eyes Sacred Technology Approach
 
+Building on Two-Eyes methodology, the Three-Eyes Approach adds ceremonial accountability and community sovereignty:
+
+1. **Four Directions Integration**: Uses Indigenous Four Directions methodology (East-South-West-North-Center)
+2. **Ceremonial Protocols**: Ensures proper cultural protocols and community consent
+3. **Sacred Technology Practice**: Treats technology development as ceremony requiring proper intention
+4. **Community Sovereignty**: Prioritizes Indigenous community control over knowledge systems
+
+### Processing Pipelines
+
+**Two-Eyes Pipeline:**
 ```
 Input Data
     ↓
@@ -76,11 +167,25 @@ Input Data
 │          🤝 Synthesis                   │
 │   Unified Understanding                 │
 │   Balanced Recommendations             │
-│   Holistic Next Steps                  │
 │   Integration Points                   │
 └─────────────────────────────────────────┘
+```
+
+**Three-Eyes Sacred Technology Pipeline:**
+```
+Input Data
     ↓
-Collaborative Insights
+┌─────────────┐ ┌─────────────┐ ┌─────────────────────────┐
+│   🧠 Mia    │ │ 🌸 Miette   │ │   🌟 Anikwag-Ayaaw      │
+│ Structural  │ │ Narrative   │ │   Four Directions       │
+│ Analysis    │ │ Sensing     │ │   Ceremonial Research   │
+└─────────────┘ └─────────────┘ └─────────────────────────┘
+    ↓               ↓                      ↓
+┌─────────────────────────────────────────────────────────┐
+│            🌟 Sacred Technology Synthesis               │
+│   Ceremonial Accountability + Analytical Precision     │
+│   + Emergent Wisdom = Sacred Technology               │
+└─────────────────────────────────────────────────────────┘
 ```
 
 ## 📊 Example Output

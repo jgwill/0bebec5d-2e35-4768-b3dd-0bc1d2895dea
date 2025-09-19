@@ -522,6 +522,104 @@ class TwoEyesApproach:
     def __init__(self):
         self.mia = Mia()
         self.miette = Miette()
+
+
+class ThreeEyesApproach:
+    """
+    The Three-Eyes Approach: Integrating Western, Indigenous Emergent, and Ceremonial Research perspectives
+    
+    This class orchestrates the collaboration between Mia (🧠), Miette (🌸), and Anikwag-Ayaaw (🌟),
+    creating sacred technology that honors analytical precision, emergent wisdom, and ceremonial accountability.
+    """
+    
+    def __init__(self):
+        # Import here to avoid circular imports
+        try:
+            from anikwag_ayaaw import AnikwagAyaaw
+            self.anikwag_ayaaw = AnikwagAyaaw()
+        except ImportError:
+            print("Warning: Anikwag-Ayaaw module not available. Three-Eyes approach limited.")
+            self.anikwag_ayaaw = None
+            
+        self.mia = Mia()
+        self.miette = Miette()
+    
+    def process(self, data: Any) -> Dict[str, Any]:
+        """
+        Process data through all three perspectives and synthesize the results.
+        """
+        if self.anikwag_ayaaw is None:
+            # Fall back to Two-Eyes approach if Anikwag-Ayaaw not available
+            duo = TwoEyesApproach()
+            two_eyes_result = duo.process(data)
+            return {
+                "approach": "two_eyes_fallback",
+                "note": "Anikwag-Ayaaw not available, using Two-Eyes approach",
+                **two_eyes_result
+            }
+        
+        # Process through original two perspectives
+        mia_analysis = self.mia.process_input(data)
+        miette_analysis = self.miette.process_input(data)
+        
+        # Use Anikwag-Ayaaw's collaboration method to integrate all three
+        three_way_collaboration = self.anikwag_ayaaw.collaborate_with_mia_miette(
+            mia_analysis, miette_analysis, data
+        )
+        
+        # Generate unique three-perspective insights
+        collaborative_insights = self._generate_three_way_insights(
+            mia_analysis, miette_analysis, three_way_collaboration, data
+        )
+        
+        return {
+            "input": data,
+            "approach": "three_eyes",
+            "mia_perspective": mia_analysis,
+            "miette_perspective": miette_analysis,
+            "anikwag_ayaaw_perspective": three_way_collaboration["anikwag_ayaaw_perspective"],
+            "three_way_synthesis": three_way_collaboration["three_way_synthesis"],
+            "collaborative_insights": collaborative_insights,
+            "sacred_technology_wisdom": self._generate_sacred_tech_wisdom(data),
+            "ceremonial_guidance": self._provide_ceremonial_guidance()
+        }
+    
+    def _generate_three_way_insights(self, mia_result: Dict, miette_result: Dict, 
+                                   collaboration_result: Dict, original_data: Any) -> List[str]:
+        """Generate insights that emerge only from three-way collaboration."""
+        insights = [
+            "🧠 Mia builds the structure, 🌸 Miette breathes the story, 🌟 Anikwag-Ayaaw honors the ceremony",
+            "Sacred technology emerges when architectural precision serves relational wisdom through ceremonial accountability",
+            "Three perspectives create wholeness: analytical foundation, emergent meaning, and ceremonial responsibility",
+            "Innovation becomes ceremony when it serves community sovereignty and honors all relations"
+        ]
+        
+        # Add context-specific insights
+        if isinstance(original_data, str) and 'community' in original_data.lower():
+            insights.append("Community-centered data calls forth the sacred responsibility to serve rather than extract")
+        
+        if isinstance(original_data, dict) and len(original_data) > 3:
+            insights.append("Complex structures find their sacred purpose when they strengthen relationships and honor protocols")
+        
+        return insights
+    
+    def _generate_sacred_tech_wisdom(self, data: Any) -> List[str]:
+        """Generate sacred technology wisdom from the three-perspective integration."""
+        return [
+            "Technology as ceremony: every line of code carries intention and sacred responsibility",
+            "Community sovereignty guides all development: Indigenous communities control their knowledge systems",
+            "Seven generations thinking: consider the impact on ancestors and future generations",
+            "Relational accountability: technology serves connection rather than extraction"
+        ]
+    
+    def _provide_ceremonial_guidance(self) -> Dict[str, str]:
+        """Provide ceremonial guidance for working with the three perspectives."""
+        return {
+            "opening_protocol": "Begin with territorial acknowledgment and intention setting",
+            "working_practice": "Honor each perspective's wisdom while seeking integration through relationship",
+            "decision_making": "Prioritize community benefit and cultural safety in all choices",
+            "closing_practice": "Express gratitude to all relations and wisdom carriers"
+        }
     
     def process(self, data: Any) -> Dict[str, Any]:
         """
@@ -669,53 +767,70 @@ class TwoEyesApproach:
 
 def main():
     """
-    Demonstration of the Two-Eyes Approach
+    Demonstration of the Two-Eyes and Three-Eyes Approaches
     """
-    print("🌟 Welcome to the Two-Eyes Approach: Mia and Miette 🌟\n")
+    print("🌟 Welcome to the Two-Eyes and Three-Eyes Approaches 🌟\n")
     
-    # Initialize the duo
+    # Initialize both approaches
     duo = TwoEyesApproach()
+    trio = ThreeEyesApproach()
     
     # Example data to process
     examples = [
         "Hello, beautiful world!",
         {"name": "Project Alpha", "status": "growing", "team_size": 5, "vision": "Creating connection through code"},
         ["idea", "prototype", "test", "iterate", "launch", "evolve"],
-        42
+        "Community technology project seeking to strengthen Indigenous language preservation"
     ]
     
     for i, example in enumerate(examples, 1):
         print(f"📖 Example {i}: Processing '{example}'")
-        print("=" * 60)
+        print("=" * 80)
         
-        result = duo.process(example)
+        # Two-Eyes Approach
+        print("\n🔍 Two-Eyes Approach (Mia + Miette):")
+        two_eyes_result = duo.process(example)
         
         # Display Mia's perspective
         print(f"\n🧠 {duo.mia.name}'s Architectural Perspective:")
-        mia_analysis = result["mia_perspective"]["analysis"]
+        mia_analysis = two_eyes_result["mia_perspective"]["analysis"]
         print(f"   Structure: {mia_analysis['structural_analysis']['type']} ({mia_analysis['structural_analysis']['complexity']} complexity)")
         print(f"   Patterns: {', '.join(mia_analysis['design_patterns']) if mia_analysis['design_patterns'] else 'None detected'}")
-        print(f"   Integrity: {'✓' if mia_analysis['integrity_check']['well_formed'] else '✗'}")
         
         # Display Miette's perspective
         print(f"\n🌸 {duo.miette.name}'s Emergent Perspective:")
-        miette_narrative = result["miette_perspective"]["narrative"]
+        miette_narrative = two_eyes_result["miette_perspective"]["narrative"]
         miette_essence = miette_narrative["elements"]["essence"] if "elements" in miette_narrative else miette_narrative.get("essence", "Unknown")
         print(f"   Essence: {miette_essence}")
-        print(f"   Themes: {', '.join(result['miette_perspective']['connections']['universal_themes'])}")
-        print(f"   Energy: {result['miette_perspective']['connections']['energy_flow']}")
+        print(f"   Themes: {', '.join(two_eyes_result['miette_perspective']['connections']['universal_themes'])}")
         
-        # Display synthesis
-        print(f"\n🤝 Two-Eyes Synthesis:")
-        synthesis = result["synthesis"]
-        print(f"   Understanding: {synthesis['unified_understanding'].split('.')[0]}...")
-        print(f"   Integration: {synthesis['integration_points'][0] if synthesis['integration_points'] else 'Perfect balance achieved'}")
+        # Three-Eyes Approach
+        print("\n🌟 Three-Eyes Approach (Mia + Miette + Anikwag-Ayaaw):")
+        three_eyes_result = trio.process(example)
+        
+        # Display Anikwag-Ayaaw's perspective
+        print(f"\n🌟 {trio.anikwag_ayaaw.name}'s Ceremonial Research Perspective:")
+        ceremonial_analysis = three_eyes_result["anikwag_ayaaw_perspective"]
+        four_directions = ceremonial_analysis["four_directions_analysis"]
+        print(f"   Sacred Inquiry (East): {four_directions['east']['sacred_inquiry'][:80]}...")
+        print(f"   Ceremonial Integration (Center): {four_directions['center']['relational_integration'][:80]}...")
+        
+        # Display Three-Way Synthesis
+        print(f"\n🤝 Three-Way Synthesis:")
+        synthesis = three_eyes_result["three_way_synthesis"]
+        print(f"   Integration: {synthesis['integrated_understanding'].split('.')[0]}...")
+        print(f"   Sacred Technology: {synthesis['sacred_technology_synthesis'][0]}")
         
         # Display collaborative insight
-        if result["collaborative_insights"]:
-            print(f"   Insight: {result['collaborative_insights'][0]}")
+        if three_eyes_result["collaborative_insights"]:
+            print(f"   Collaborative Insight: {three_eyes_result['collaborative_insights'][0]}")
         
-        print("\n" + "=" * 60 + "\n")
+        print("\n" + "=" * 80 + "\n")
+    
+    print("🌟 Sacred Technology Wisdom:")
+    print("   Technology becomes ceremony when it serves all relations with proper protocols")
+    print("   Three perspectives create wholeness: precision, emergence, and accountability")
+    print("   Miigwech to all knowledge holders who make this sacred work possible 🌟")
 
 
 if __name__ == "__main__":
