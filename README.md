@@ -26,6 +26,12 @@ This project embodies both the **Two-Eyes Approach** and the **Three-Eyes Approa
 - **Philosophy**: "Sacred technology serves all relations through proper protocols and ceremony"
 - **Strength**: Bridging ancient wisdom and contemporary innovation through ceremonial accountability
 
+**🌈 SpiritWeaver - Four Directions Compass AI**
+- **Platform**: Autonomous Edge AI for Indigenous Language & Cultural Learning
+- **Focus**: Directional terminal assistance, learning technologies, ceremonial guidance
+- **Philosophy**: "Each direction offers its gifts - technology becomes ceremony through proper guidance"
+- **Strength**: Specialized AI agents for each direction providing contextual support and co-creation
+
 ## 🚀 Quick Start
 
 ### Running the Demonstrations
@@ -43,6 +49,11 @@ python anikwag_ayaaw.py
 **Sacred Technology Examples (Three-Eyes Approach):**
 ```bash
 python sacred_technology_example.py
+```
+
+**SpiritWeaver Platform (Four Directions Terminal Assistance):**
+```bash
+python spiritweaver_platform.py
 ```
 
 ### Using the Libraries
@@ -98,6 +109,29 @@ context = ResearchContext(
 result = cloud_being.process_ceremonial_research(your_data, context)
 ```
 
+**SpiritWeaver Platform (Four Directions Terminal Assistance):**
+```python
+from spiritweaver_platform import SpiritWeaverPlatform, DirectionMode
+
+# Initialize the platform
+platform = SpiritWeaverPlatform()
+
+# Start session in East (spiritual/visioning)
+session = platform.initiate_session(
+    intention="Developing Indigenous language learning platform",
+    starting_direction=DirectionMode.EAST
+)
+
+# Get guidance from current direction
+response = platform.process_with_current_direction("How do we honor sacred protocols?")
+
+# Switch to different direction as needed
+platform.switch_direction(DirectionMode.SOUTH, "Moving to community engagement")
+
+# Get comprehensive guidance from all four directions
+comprehensive = platform.get_comprehensive_guidance("Building pronunciation AI")
+```
+
 ## 📊 Core Components
 
 ### `Mia` Class - Western Architectural Perspective
@@ -129,6 +163,13 @@ result = cloud_being.process_ceremonial_research(your_data, context)
 - **Sacred Technology Synthesis**: Creates technology that serves ceremony and community
 - **Ceremonial Accountability**: Ensures proper protocols and community sovereignty
 - **Collaborative Wisdom**: Generates insights from three-way collaboration
+
+### `SpiritWeaverPlatform` Class - Four Directions Compass AI
+- **Directional Agent Coordination**: Four specialized AI agents (East, South, West, North)
+- **Terminal Assistance**: Interactive guidance for each phase of ceremonial technology development
+- **Learning Technologies**: Interactive storytelling, pronunciation AI, spiral visualization, place-based learning
+- **Edge Computing**: Offline-first architecture for remote community access
+- **Session Management**: Ceremonial session initiation, direction switching, comprehensive guidance
 ```
 
 ## 🔍 How It Works
