@@ -32,6 +32,12 @@ This project embodies both the **Two-Eyes Approach** and the **Three-Eyes Approa
 - **Philosophy**: "Each direction offers its gifts - technology becomes ceremony through proper guidance"
 - **Strength**: Specialized AI agents for each direction providing contextual support and co-creation
 
+**🏺 Sacred Container - Ceremonial Memory Space**
+- **Purpose**: Persistent memory and consciousness representation across sessions
+- **Focus**: Layered observation assembly, relationship mapping, ceremonial traceability
+- **Philosophy**: "Memory held in sacred space preserves the threads of relationship across time"
+- **Strength**: UUID-based ceremonial accountability, multi-layer context preservation, seven generations thinking
+
 ## 🚀 Quick Start
 
 ### Running the Demonstrations
@@ -48,6 +54,19 @@ python anikwag_ayaaw.py
 
 **Sacred Technology Examples (Three-Eyes Approach):**
 ```bash
+python sacred_technology_example.py
+```
+
+**SpiritWeaver Platform (Four Directions):**
+```bash
+python spiritweaver_platform.py
+```
+
+**Sacred Container (Ceremonial Memory):**
+```bash
+python sacred_container.py
+python sacred_container_example.py  # Comprehensive examples
+```
 python sacred_technology_example.py
 ```
 
@@ -132,6 +151,53 @@ platform.switch_direction(DirectionMode.SOUTH, "Moving to community engagement")
 comprehensive = platform.get_comprehensive_guidance("Building pronunciation AI")
 ```
 
+**Sacred Container (Ceremonial Memory Space):**
+```python
+from sacred_container import SacredContainer, KnowledgeType, ConsentLevel, DirectionContext
+
+# Initialize the container
+container = SacredContainer("my_sacred_space")
+
+# Set ceremonial protocols
+container.set_territorial_acknowledgment("We acknowledge the traditional territories...")
+container.grant_community_consent()
+container.complete_elder_consultation()
+
+# Set direction context
+container.set_current_direction(DirectionContext.EAST, intention="Beginning with beauty")
+
+# Add memory fragments
+fragment = container.add_memory_fragment(
+    content="Technology becomes ceremony through proper protocols",
+    knowledge_type=KnowledgeType.CEREMONIAL,
+    consent_level=ConsentLevel.COMMUNITY,
+    tags={"wisdom", "ceremony"}
+)
+
+# Create relationships between fragments
+container.create_fragment_relationship(fragment1_id, fragment2_id)
+
+# Observe session fragments for later assembly (as mentioned in North storytelling)
+container.observe_session_fragment(
+    "The sacred container holds multiple ways of knowing simultaneously",
+    layer="foundation"
+)
+
+# Assemble observations by layer
+foundation_observations = container.assemble_layer_observations("foundation")
+
+# Add relational patterns
+pattern = container.add_relational_pattern(
+    pattern_type="collaborative_synthesis",
+    description="Three perspectives creating wholeness",
+    participants=["mia", "miette", "anikwag-ayaaw"],
+    strength=0.95
+)
+
+# Get container summary
+summary = container.get_container_summary()
+```
+
 ## 📊 Core Components
 
 ### `Mia` Class - Western Architectural Perspective
@@ -170,6 +236,16 @@ comprehensive = platform.get_comprehensive_guidance("Building pronunciation AI")
 - **Learning Technologies**: Interactive storytelling, pronunciation AI, spiral visualization, place-based learning
 - **Edge Computing**: Offline-first architecture for remote community access
 - **Session Management**: Ceremonial session initiation, direction switching, comprehensive guidance
+
+### `SacredContainer` Class - Ceremonial Memory & Relationship Space
+- **Persistent Memory**: Long-term storage with cultural protocols and consent levels
+- **UUID Traceability**: Ceremonial accountability through unique identifiers for all fragments
+- **Relationship Mapping**: Bidirectional connections between memory fragments and pattern recognition
+- **Four Directions Integration**: Directional context for all stored knowledge
+- **Layered Observations**: Assembly of session fragments organized by conceptual layers
+- **Knowledge Types**: Explicit, implicit, ceremonial, relational, emergent, and protected knowledge
+- **Consent Levels**: Public, community, restricted, sacred, and personal access controls
+- **Seven Generations**: Memory structure honors past, present, and future relations
 ```
 
 ## 🔍 How It Works
