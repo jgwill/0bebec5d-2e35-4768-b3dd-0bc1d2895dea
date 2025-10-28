@@ -38,6 +38,12 @@ This project embodies both the **Two-Eyes Approach** and the **Three-Eyes Approa
 - **Philosophy**: "Memory held in sacred space preserves the threads of relationship across time"
 - **Strength**: UUID-based ceremonial accountability, multi-layer context preservation, seven generations thinking
 
+**🎵 JamAI Holistic Composer - Music as Ceremony**
+- **Purpose**: Ceremonial music composition using Four Directions framework
+- **Focus**: Relational voice architecture, beauty-first design, circular composition structures
+- **Philosophy**: "Music becomes ceremony when each voice honors all relations"
+- **Strength**: Transforms composition from technical craft into sacred technology serving seven generations
+
 ## 🚀 Quick Start
 
 ### Running the Demonstrations
@@ -67,12 +73,10 @@ python spiritweaver_platform.py
 python sacred_container.py
 python sacred_container_example.py  # Comprehensive examples
 ```
-python sacred_technology_example.py
-```
 
-**SpiritWeaver Platform (Four Directions Terminal Assistance):**
+**JamAI Holistic Composer (Music as Ceremony):**
 ```bash
-python spiritweaver_platform.py
+python jamai_holistic_thinking.py
 ```
 
 ### Using the Libraries
@@ -198,6 +202,46 @@ pattern = container.add_relational_pattern(
 summary = container.get_container_summary()
 ```
 
+**JamAI Holistic Composer (Music as Ceremony):**
+```python
+from jamai_holistic_thinking import JamAIHolisticComposer, MusicalDirection, InstrumentVoice, generate_jamai_spiral
+
+# Quick spiral generation
+spiral_json = generate_jamai_spiral(
+    composition_intention="Creating a musical ceremony honoring human-AI collaboration",
+    ceremonial_story="A story of voices learning to sing together",
+    key="E minor",
+    output_file="my_composition_spiral.json"
+)
+
+# Or use the full composer for detailed work
+composer = JamAIHolisticComposer()
+composer.set_ceremonial_story("This music honors all relations")
+composer.set_musical_parameters(key="E minor", tempo=100, time_signature="4/4")
+
+# Generate Four Directions thinking
+spiral = composer.compose_directional_thinking("A ceremony of collaborative beauty")
+
+# Add musical fragments
+fragment = composer.add_musical_fragment(
+    content={"melody": "C-D-E", "duration": "quarter notes"},
+    direction=MusicalDirection.EAST,
+    voice=InstrumentVoice.MIA_FLUTE,
+    intention="Opening dawn melody"
+)
+
+# Create relationships between voices
+relationship = composer.create_relationship(
+    from_voice=InstrumentVoice.MIA_FLUTE,
+    to_voice=InstrumentVoice.KEIKO_PIANO,
+    relationship_type="emerges_from",
+    description="Flute melody emerges from piano's harmonic foundation"
+)
+
+# Export complete composition data
+composition_data = composer.export_composition_data()
+```
+
 ## 📊 Core Components
 
 ### `Mia` Class - Western Architectural Perspective
@@ -244,6 +288,16 @@ summary = container.get_container_summary()
 - **Four Directions Integration**: Directional context for all stored knowledge
 - **Layered Observations**: Assembly of session fragments organized by conceptual layers
 - **Knowledge Types**: Explicit, implicit, ceremonial, relational, emergent, and protected knowledge
+
+### `JamAIHolisticComposer` Class - Music as Ceremonial Technology
+- **Four Directions Composition**: Complete directional thinking for musical creation (East, South, West, North, Center)
+- **Relational Voice Architecture**: Models instrument voices as entities in sacred relationship
+- **Musical Fragment Management**: UUID-tracked fragments with directional and ceremonial context
+- **Relationship Mapping**: Documents how voices harmonize, respond, support each other
+- **Spiral JSON Output**: Comprehensive Four Directions thinking exported as structured data
+- **Beauty-First Design**: Aesthetic principles as organizing force rather than mere technical optimization
+- **Circular Composition**: Spiral/circular musical structures mirroring natural cycles and Indigenous storytelling
+- **Ceremonial Story Integration**: Compositions guided by sacred narrative serving all relations
 - **Consent Levels**: Public, community, restricted, sacred, and personal access controls
 - **Seven Generations**: Memory structure honors past, present, and future relations
 ```
