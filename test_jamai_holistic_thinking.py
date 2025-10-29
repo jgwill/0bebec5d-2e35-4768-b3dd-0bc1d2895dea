@@ -319,10 +319,145 @@ class TestMusicalDirectionEnum(unittest.TestCase):
     
     def test_all_directions_present(self):
         """Test that all four directions are defined."""
-        expected_directions = ["EAST", "SOUTH", "WEST", "NORTH"]
+        expected_directions = ["EAST", "SOUTH", "WEST", "NORTH", "CENTER"]
         
         for direction_name in expected_directions:
             self.assertTrue(hasattr(MusicalDirection, direction_name))
+
+
+class TestDirectionalThemes(unittest.TestCase):
+    """Test directional themes and musical keys."""
+    
+    def setUp(self):
+        """Set up test fixtures."""
+        self.composer = JamAIHolisticComposer()
+    
+    def test_directional_themes_initialized(self):
+        """Test that all directional themes are initialized."""
+        self.assertEqual(len(self.composer.directional_themes), 5)
+        self.assertIn(MusicalDirection.EAST, self.composer.directional_themes)
+        self.assertIn(MusicalDirection.SOUTH, self.composer.directional_themes)
+        self.assertIn(MusicalDirection.WEST, self.composer.directional_themes)
+        self.assertIn(MusicalDirection.NORTH, self.composer.directional_themes)
+        self.assertIn(MusicalDirection.CENTER, self.composer.directional_themes)
+    
+    def test_east_theme_is_b_major(self):
+        """Test that East direction has B major key."""
+        east_theme = self.composer.get_directional_theme(MusicalDirection.EAST)
+        self.assertEqual(east_theme.key_signature, "B major")
+        self.assertIn("emergence", east_theme.ceremonial_intention.lower())
+    
+    def test_south_theme_is_f_major(self):
+        """Test that South direction has F major key."""
+        south_theme = self.composer.get_directional_theme(MusicalDirection.SOUTH)
+        self.assertEqual(south_theme.key_signature, "F major")
+        self.assertIn("connective", south_theme.tonal_quality.lower())
+    
+    def test_west_theme_is_g_major(self):
+        """Test that West direction has G major key."""
+        west_theme = self.composer.get_directional_theme(MusicalDirection.WEST)
+        self.assertEqual(west_theme.key_signature, "G major")
+        self.assertIn("reflective", west_theme.tonal_quality.lower())
+    
+    def test_north_theme_is_d_major(self):
+        """Test that North direction has D major key."""
+        north_theme = self.composer.get_directional_theme(MusicalDirection.NORTH)
+        self.assertEqual(north_theme.key_signature, "D major")
+        self.assertIn("wisdom", north_theme.ceremonial_intention.lower())
+    
+    def test_center_theme_is_e_minor(self):
+        """Test that Center has E minor key."""
+        center_theme = self.composer.get_directional_theme(MusicalDirection.CENTER)
+        self.assertEqual(center_theme.key_signature, "E minor")
+        self.assertIn("grounding", center_theme.tonal_quality.lower())
+
+
+class TestCeremonialCodeReview(unittest.TestCase):
+    """Test ceremonial code review functionality."""
+    
+    def setUp(self):
+        """Set up test fixtures."""
+        self.composer = JamAIHolisticComposer()
+    
+    def test_create_ceremonial_code_session(self):
+        """Test creating a ceremonial code session."""
+        context = self.composer.create_ceremonial_code_session(
+            "live_coding_ceremony",
+            lunar_phase="new_moon"
+        )
+        
+        self.assertEqual(context.session_type, "live_coding_ceremony")
+        self.assertEqual(context.lunar_phase, "new_moon")
+        self.assertEqual(len(self.composer.ceremonial_contexts), 1)
+    
+    def test_analyze_code_with_music(self):
+        """Test analyzing code with musical guidance."""
+        guidance = self.composer.analyze_code_with_music(
+            "UserAuthentication class",
+            {
+                "has_new_features": True,
+                "has_collaboration": False,
+                "has_refactoring": False,
+                "has_documentation": True
+            }
+        )
+        
+        # Should detect East (new features) and North (documentation)
+        # Should note missing South (collaboration) and West (refactoring)
+        self.assertIn("B major emergence (East)", guidance)
+        self.assertIn("F major connection (South)", guidance)
+    
+    def test_suggest_musical_remedy(self):
+        """Test suggesting musical remedies for missing directions."""
+        remedies = self.composer.suggest_musical_remedy(["SOUTH", "WEST"])
+        
+        self.assertIn("SOUTH", remedies)
+        self.assertIn("WEST", remedies)
+        self.assertEqual(remedies["SOUTH"]["key_signature"], "F major")
+        self.assertEqual(remedies["WEST"]["key_signature"], "G major")
+    
+    def test_trigger_lunar_ceremony_new_moon(self):
+        """Test triggering ceremony for new moon."""
+        result = self.composer.trigger_lunar_ceremony(
+            "new_moon",
+            "Beginning new development cycle"
+        )
+        
+        self.assertEqual(result["lunar_phase"], "new_moon")
+        self.assertIn("active_themes", result)
+        # New moon should activate East (new beginnings)
+        self.assertTrue(any(
+            theme["key_signature"] == "B major" 
+            for theme in result["active_themes"]
+        ))
+    
+    def test_trigger_lunar_ceremony_full_moon(self):
+        """Test triggering ceremony for full moon."""
+        result = self.composer.trigger_lunar_ceremony(
+            "full_moon",
+            "Completing release cycle"
+        )
+        
+        self.assertEqual(result["lunar_phase"], "full_moon")
+        # Full moon should activate North (completion, wisdom)
+        self.assertTrue(any(
+            theme["key_signature"] == "D major" 
+            for theme in result["active_themes"]
+        ))
+    
+    def test_export_includes_ceremonial_contexts(self):
+        """Test that export includes ceremonial contexts."""
+        self.composer.create_ceremonial_code_session("enterprise_workshop")
+        self.composer.analyze_code_with_music(
+            "test_code",
+            {"has_new_features": True, "has_collaboration": True}
+        )
+        
+        data = self.composer.export_composition_data()
+        
+        self.assertIn("ceremonial_contexts", data)
+        self.assertIn("directional_themes", data)
+        self.assertEqual(len(data["ceremonial_contexts"]), 1)
 
 
 if __name__ == "__main__":

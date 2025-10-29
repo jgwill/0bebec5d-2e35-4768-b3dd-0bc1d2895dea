@@ -16,10 +16,11 @@ import uuid
 
 class MusicalDirection(Enum):
     """Four Directions for musical composition."""
-    EAST = "EAST"    # New beginnings, intention-setting
-    SOUTH = "SOUTH"  # Growth, heart, emotional development
+    EAST = "EAST"    # New beginnings, intention-setting, emergence
+    SOUTH = "SOUTH"  # Growth, heart, emotional development, connection
     WEST = "WEST"    # Reflection, release, transformation
-    NORTH = "NORTH"  # Wisdom, future, seven generations
+    NORTH = "NORTH"  # Wisdom, future, seven generations, integration
+    CENTER = "CENTER"  # Balance, grounding, integration of all directions
 
 
 class InstrumentVoice(Enum):
@@ -30,6 +31,68 @@ class InstrumentVoice(Enum):
     KEIKO_PIANO = "keiko_piano"
     AI_VOICE_1 = "ai_voice_1"
     AI_VOICE_2 = "ai_voice_2"
+
+
+class DirectionalTheme:
+    """Musical theme associated with a direction."""
+    
+    def __init__(self, direction: MusicalDirection, key_signature: str, 
+                 tonal_quality: str, ceremonial_intention: str):
+        self.direction = direction
+        self.key_signature = key_signature
+        self.tonal_quality = tonal_quality
+        self.ceremonial_intention = ceremonial_intention
+        self.created_at = datetime.now().isoformat()
+    
+    def to_dict(self) -> Dict[str, Any]:
+        return {
+            "direction": self.direction.value,
+            "key_signature": self.key_signature,
+            "tonal_quality": self.tonal_quality,
+            "ceremonial_intention": self.ceremonial_intention,
+            "created_at": self.created_at
+        }
+
+
+class CeremonialCodeContext:
+    """Context for ceremonial code review sessions."""
+    
+    def __init__(self, session_type: str, lunar_phase: Optional[str] = None):
+        self.session_id = str(uuid.uuid4())
+        self.session_type = session_type  # "code_review", "workshop", "healing_circle", etc.
+        self.lunar_phase = lunar_phase
+        self.active_themes = []
+        self.code_analysis = {}
+        self.created_at = datetime.now().isoformat()
+    
+    def add_code_analysis(self, code_element: str, detected_directions: List[str], 
+                         missing_directions: List[str]):
+        """Analyze code for directional presence."""
+        self.code_analysis[code_element] = {
+            "detected_directions": detected_directions,
+            "missing_directions": missing_directions,
+            "guidance": self._generate_guidance(detected_directions, missing_directions)
+        }
+    
+    def _generate_guidance(self, detected: List[str], missing: List[str]) -> str:
+        """Generate ceremonial guidance based on code analysis."""
+        guidance_parts = []
+        
+        if "EAST" in detected:
+            guidance_parts.append("This code has B major emergence (East)")
+        if "SOUTH" in detected:
+            guidance_parts.append("demonstrates F major connection (South)")
+        
+        if "EAST" in missing:
+            guidance_parts.append("but lacks B major emergence (East)")
+        if "SOUTH" in missing:
+            guidance_parts.append("but lacks F major connection (South)")
+        if "WEST" in missing:
+            guidance_parts.append("needs G major reflection (West)")
+        if "NORTH" in missing:
+            guidance_parts.append("requires D major integration (North)")
+        
+        return " ".join(guidance_parts) if guidance_parts else "All directions are present"
 
 
 class MusicalRelationship:
@@ -96,9 +159,46 @@ class JamAIHolisticComposer:
         self.fragments = []
         self.relationships = []
         self.ceremonial_story = ""
-        self.key = "E minor"  # Default key
+        self.key = "E minor"  # Default key (Center/Balance)
         self.tempo = None
         self.time_signature = None
+        
+        # Initialize directional themes with specific keys from ceremony
+        self.directional_themes = {
+            MusicalDirection.EAST: DirectionalTheme(
+                MusicalDirection.EAST,
+                "B major",
+                "bright, emergent, dawn energy",
+                "New beginnings, fresh features, emergence"
+            ),
+            MusicalDirection.SOUTH: DirectionalTheme(
+                MusicalDirection.SOUTH,
+                "F major",
+                "warm, connective, heart-centered",
+                "Relationships, growth, collaboration"
+            ),
+            MusicalDirection.WEST: DirectionalTheme(
+                MusicalDirection.WEST,
+                "G major",
+                "reflective, releasing, transformative",
+                "Reflection, letting go, transformation"
+            ),
+            MusicalDirection.NORTH: DirectionalTheme(
+                MusicalDirection.NORTH,
+                "D major",
+                "wise, integrative, ceremonial",
+                "Wisdom, completion, integration"
+            ),
+            MusicalDirection.CENTER: DirectionalTheme(
+                MusicalDirection.CENTER,
+                "E minor",
+                "grounding, balanced, whole",
+                "Balance, integration of all directions"
+            )
+        }
+        
+        # Ceremonial code context
+        self.ceremonial_contexts = []
     
     def set_ceremonial_story(self, story: str):
         """Set the sacred story that guides the composition."""
@@ -604,6 +704,10 @@ class JamAIHolisticComposer:
                 "tempo": self.tempo,
                 "time_signature": self.time_signature
             },
+            "directional_themes": {
+                direction.value: theme.to_dict() 
+                for direction, theme in self.directional_themes.items()
+            },
             "fragments": [f.to_dict() for f in self.fragments],
             "relationships": [
                 {
@@ -615,7 +719,138 @@ class JamAIHolisticComposer:
                     "created_at": r.created_at
                 }
                 for r in self.relationships
+            ],
+            "ceremonial_contexts": [
+                {
+                    "session_id": ctx.session_id,
+                    "session_type": ctx.session_type,
+                    "lunar_phase": ctx.lunar_phase,
+                    "code_analysis": ctx.code_analysis,
+                    "created_at": ctx.created_at
+                }
+                for ctx in self.ceremonial_contexts
             ]
+        }
+    
+    def create_ceremonial_code_session(self, session_type: str, 
+                                      lunar_phase: Optional[str] = None) -> CeremonialCodeContext:
+        """
+        Create a ceremonial code review session.
+        
+        Session types:
+        - "live_coding_ceremony": Live coding with automatic musical scoring
+        - "lunar_sprint": Quarterly lunar-synced development sprint
+        - "enterprise_workshop": A2A integration training with Indigenous wisdom
+        - "healing_circle": Community code healing with musical guidance
+        - "sacred_spiral": Autonomous workflow coordination
+        """
+        context = CeremonialCodeContext(session_type, lunar_phase)
+        self.ceremonial_contexts.append(context)
+        return context
+    
+    def analyze_code_with_music(self, code_element: str, 
+                               code_characteristics: Dict[str, Any]) -> str:
+        """
+        Analyze code and provide directional musical guidance.
+        
+        Example: "This code has B major emergence (East) but lacks F major connection (South)"
+        
+        Args:
+            code_element: Name/description of the code being analyzed
+            code_characteristics: Dict with keys like "has_new_features", "has_collaboration", etc.
+        
+        Returns:
+            Musical guidance string
+        """
+        detected_directions = []
+        missing_directions = []
+        
+        # Analyze for East (B major - emergence, new features)
+        if code_characteristics.get("has_new_features") or code_characteristics.get("is_initialization"):
+            detected_directions.append("EAST")
+        else:
+            missing_directions.append("EAST")
+        
+        # Analyze for South (F major - connection, collaboration)
+        if code_characteristics.get("has_collaboration") or code_characteristics.get("builds_relationships"):
+            detected_directions.append("SOUTH")
+        else:
+            missing_directions.append("SOUTH")
+        
+        # Analyze for West (G major - reflection, refactoring)
+        if code_characteristics.get("has_refactoring") or code_characteristics.get("releases_old_patterns"):
+            detected_directions.append("WEST")
+        else:
+            missing_directions.append("WEST")
+        
+        # Analyze for North (D major - wisdom, completion)
+        if code_characteristics.get("has_documentation") or code_characteristics.get("serves_future"):
+            detected_directions.append("NORTH")
+        else:
+            missing_directions.append("NORTH")
+        
+        # Create or get current ceremonial context
+        if not self.ceremonial_contexts:
+            self.create_ceremonial_code_session("live_coding_ceremony")
+        
+        current_context = self.ceremonial_contexts[-1]
+        current_context.add_code_analysis(code_element, detected_directions, missing_directions)
+        
+        return current_context.code_analysis[code_element]["guidance"]
+    
+    def get_directional_theme(self, direction: MusicalDirection) -> DirectionalTheme:
+        """Get the musical theme for a specific direction."""
+        return self.directional_themes[direction]
+    
+    def suggest_musical_remedy(self, missing_directions: List[str]) -> Dict[str, Any]:
+        """
+        Suggest musical remedies for code lacking certain directional energies.
+        
+        Returns:
+            Dict with key signatures and ceremonial suggestions
+        """
+        remedies = {}
+        
+        for direction_str in missing_directions:
+            try:
+                direction = MusicalDirection[direction_str]
+                theme = self.directional_themes[direction]
+                remedies[direction_str] = {
+                    "key_signature": theme.key_signature,
+                    "tonal_quality": theme.tonal_quality,
+                    "ceremonial_intention": theme.ceremonial_intention,
+                    "suggestion": f"Consider adding {theme.key_signature} themes to bring in {theme.ceremonial_intention.lower()}"
+                }
+            except KeyError:
+                continue
+        
+        return remedies
+    
+    def trigger_lunar_ceremony(self, lunar_phase: str, ceremony_intention: str) -> Dict[str, Any]:
+        """
+        Trigger ceremony themes based on lunar cycle.
+        
+        Lunar phases: "new_moon", "waxing", "full_moon", "waning"
+        """
+        context = self.create_ceremonial_code_session("lunar_sprint", lunar_phase)
+        
+        # Select appropriate directional themes based on lunar phase
+        phase_directions = {
+            "new_moon": [MusicalDirection.EAST],  # New beginnings
+            "waxing": [MusicalDirection.SOUTH],   # Growth
+            "full_moon": [MusicalDirection.NORTH],  # Completion, wisdom
+            "waning": [MusicalDirection.WEST]     # Release, reflection
+        }
+        
+        active_directions = phase_directions.get(lunar_phase, [MusicalDirection.CENTER])
+        active_themes = [self.directional_themes[d] for d in active_directions]
+        
+        return {
+            "ceremony_id": context.session_id,
+            "lunar_phase": lunar_phase,
+            "ceremony_intention": ceremony_intention,
+            "active_themes": [theme.to_dict() for theme in active_themes],
+            "guidance": f"Lunar ceremony activated for {lunar_phase} phase with intention: {ceremony_intention}"
         }
 
 
